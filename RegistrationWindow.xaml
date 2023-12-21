@@ -1,0 +1,49 @@
+﻿<Window x:Class="WpfApp1.RegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Регистрация" Height="450" Width="800" Background="#333333">
+
+    <Window.Resources>
+        <Style x:Key="DarkTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#555555"/>
+        </Style>
+        <Style x:Key="DarkButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#555555"/>
+        </Style>
+        <Style x:Key="DarkTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style x:Key="DarkPasswordBoxStyle" TargetType="PasswordBox">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#555555"/>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBlock Text="РЕГИСТРАЦИЯ" FontSize="24" Style="{StaticResource DarkTextBlockStyle}" Margin="0,0,0,20"/>
+            <TextBlock Text="Логин" Style="{StaticResource DarkTextBlockStyle}" Margin="0,0,0,5" TextAlignment="Center"/>
+            <TextBox x:Name="LoginTextBox" Style="{StaticResource DarkTextBoxStyle}" Width="250" ToolTip="Введите логин"/>
+            <TextBlock Text="Имя" Style="{StaticResource DarkTextBlockStyle}" Margin="0,10,0,5" TextAlignment="Center"/>
+            <TextBox x:Name="NameTextBox" Style="{StaticResource DarkTextBoxStyle}" Width="250" ToolTip="Введите имя"/>
+            <TextBlock Text="Фамилия" Style="{StaticResource DarkTextBlockStyle}" Margin="0,10,0,5" TextAlignment="Center"/>
+            <TextBox x:Name="SurnameTextBox" Style="{StaticResource DarkTextBoxStyle}" Width="250" ToolTip="Введите фамилию"/>
+            <TextBlock Text="Пароль" Style="{StaticResource DarkTextBlockStyle}" Margin="0,10,0,5" TextAlignment="Center"/>
+            <PasswordBox x:Name="PasswordBox" Style="{StaticResource DarkPasswordBoxStyle}" Width="250" ToolTip="Введите пароль"/>
+            <TextBlock Text="Телефон" Style="{StaticResource DarkTextBlockStyle}" Margin="0,10,0,5" TextAlignment="Center"/>
+            <TextBox x:Name="PhoneTextBox" Style="{StaticResource DarkTextBoxStyle}" Width="250" ToolTip="Введите номер телефона"/>
+            <Button Content="Зарегистрироваться" Style="{StaticResource DarkButtonStyle}" Margin="0,20,0,0" Click="RegisterButton_Click"/>
+            <Button Content="Назад" Style="{StaticResource DarkButtonStyle}" Margin="0,20,0,0" Click="BackButton_Click"/>
+
+        </StackPanel>
+    </Grid>
+
+</Window>

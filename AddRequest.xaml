@@ -1,0 +1,88 @@
+﻿<Window x:Class="WpfApp1.AddRequest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Добавить заявку" Height="700" Width="800" Background="#333333">
+
+    <Window.Resources>
+        <Style x:Key="DarkComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+        <Style x:Key="DarkComboBoxItemStyle" TargetType="ComboBoxItem">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="#555555"/>
+        </Style>
+
+
+        <!-- Ваши другие стили здесь -->
+
+
+        <Style x:Key="DarkTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#555555"/>
+        </Style>
+        <Style x:Key="DarkButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#555555"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Левая часть с информацией о заявке -->
+        <StackPanel Grid.Column="0" Margin="20">
+            <TextBlock Text="ДОБАВЛЕНИЕ ЗАЯВКИ" FontSize="24" Foreground="White"/>
+            <TextBlock Text="Номер заявки: XXX" Foreground="White" Margin="0,10" TextAlignment="Center"/>
+
+            <TextBlock x:Name="StartDateLabel" Text="Дата начала ремонта" Foreground="White" Margin="0,10" TextAlignment="Center"/>
+            <DatePicker x:Name="StartDatePicker" Width="250" Foreground="Black" Background="#555555" ToolTip="Выберите дату начала ремонта"/>
+
+            <TextBlock x:Name="EndDateLabel" Text="Дата окончания ремонта" Foreground="White" Margin="0,10" TextAlignment="Center"/>
+            <DatePicker x:Name="EndDatePicker" Width="250" Foreground="Black" Background="#555555" ToolTip="Выберите дату окончания ремонта"/>
+
+            <TextBlock Text="Оборудование" Foreground="White" Margin="0,10" TextAlignment="Center"/>
+            <TextBox x:Name="EquipmentTextBox" Width="250" Foreground="White" Background="#555555" ToolTip="Введите название оборудования"/>
+
+            <TextBlock Text="Тип неисправности" Foreground="White" Margin="0,10" TextAlignment="Center"/>
+            <TextBox x:Name="IssueTypeTextBox" Width="250" Foreground="White" Background="#555555" ToolTip="Введите тип неисправности"/>
+
+            <TextBlock Text="Информация о клиенте" Foreground="White" Margin="0,10" TextAlignment="Center"/>
+            <TextBox x:Name="ClientInfoTextBox" Width="250" Foreground="White" Background="#555555" ToolTip="Введите информацию о клиенте"  Height="39"/>
+
+            <TextBlock x:Name="PriceLabel" Text="Цена" Foreground="White" Margin="0,10" TextAlignment="Center"/>
+            <TextBox x:Name="PriceTextBox" Width="250" Foreground="White" Background="#555555" ToolTip="Введите цену ремонта"  Height="39"/>
+
+            <TextBlock x:Name="StatusLabel" Text="Статус" Foreground="White" Margin="0,10" TextAlignment="Center"/>
+            <ComboBox x:Name="StatusComboBox" Width="250" Style="{StaticResource DarkComboBoxStyle}" ToolTip="Выберите статус заявки">
+                <ComboBoxItem Content="Выполнено"/>
+                <ComboBoxItem Content="В работе"/>
+                <ComboBoxItem Content="Не выполнено"/>
+            </ComboBox>
+
+            <TextBlock x:Name="SpecialistLabel" Text="Специалист" Foreground="White" Margin="0,10" TextAlignment="Center"/>
+            <ComboBox x:Name="ResponsibleComboBox" Width="250" Style="{StaticResource DarkComboBoxStyle}" ToolTip="Выберите ответственного">
+            </ComboBox>
+
+            <Button Content="Назад" Margin="0,20" Click="BackButton_Click" Style="{StaticResource DarkButtonStyle}"/>
+        </StackPanel>
+
+        <!-- Правая часть с описанием проблемы -->
+        <StackPanel Grid.Column="1" Margin="20">
+            <TextBlock Text="Описание проблемы" FontSize="18" Foreground="White"/>
+            <TextBox x:Name="DescriptionTextBox" Height="536" Foreground="White" Background="#555555" Style="{StaticResource DarkTextBoxStyle}" ToolTip="Введите описание проблемы"/>
+            <Button x:Name="AddButton" Content="Добавить" Margin="0,20" Click="AddButton_Click" Style="{StaticResource DarkButtonStyle}"/>
+        </StackPanel>
+    </Grid>
+</Window>

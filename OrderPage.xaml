@@ -1,0 +1,113 @@
+﻿<Window x:Class="WpfApp1.OrderPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Заказ" Height="800" Width="1200">
+
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Margin" Value="0,0,10,0" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="Background" Value="#333333" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Margin" Value="0,0,10,0" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="MaxWidth" Value="900"/>
+            <Setter Property="MinWidth" Value="150"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#333333" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Margin" Value="0,0,10,0" />
+            <Setter Property="MinWidth" Value="150"/>
+        </Style>
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="#555555" />
+        </Style>
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="20" />
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="0,0,0,7">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Левая часть -->
+        <StackPanel Grid.Column="0">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Номер заказа:" FontWeight="Bold" />
+                <TextBox x:Name="TextBoxID" Text="{Binding OrderID}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Дата начала:" FontWeight="Bold" />
+                <TextBox x:Name="TextBoxDS" Text="{Binding StartDate}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Дата окончания:" FontWeight="Bold" />
+                <TextBox x:Name="TextBoxDE" Text="{Binding EndDate}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Статус:" FontWeight="Bold" />
+                <ComboBox x:Name="Statuss" SelectedValue="{Binding StatusID}" SelectedValuePath="Tag">
+                    <ComboBoxItem Content="Выполнено" Tag="1" />
+                    <ComboBoxItem Content="В работе" Tag="2" />
+                    <ComboBoxItem Content="Не выполнено" Tag="3" />
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Информация о клиенте:" FontWeight="Bold" />
+                <TextBox x:Name="TextBoxClientInfo" Text="{Binding ClientInfo}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Цена:" FontWeight="Bold" />
+                <TextBox x:Name="TextBoxPrice" Text="{Binding Price}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Оборудование:" FontWeight="Bold" />
+                <TextBox x:Name="TextBoxEquipment" Text="{Binding Equipment}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Тип проблемы:" FontWeight="Bold" />
+                <TextBox x:Name="TextBoxIssueType" Text="{Binding IssueType}" />
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Правая часть -->
+        <StackPanel Grid.Column="1">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Описание:" FontWeight="Bold" />
+                <TextBox x:Name="TextBoxDescription" Text="{Binding Description}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Комментарий мастера:" FontWeight="Bold" />
+                <TextBox x:Name="TextBoxMasterComment" Text="{Binding MasterComment}" />
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Кнопки -->
+        <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" Orientation="Horizontal">
+            <Button Content="Сохранить изменения" Click="SaveChangesButton_Click"/>
+            <Button Content="Назад" Click="BackButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
